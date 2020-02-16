@@ -58,12 +58,13 @@ and overwrites the current database schema with a new one.
 Downloads all elements from the edgedb server and saves them locally
 as a JSON file by extracting property, type, and link names from the
 file and structures sequential blocking calls to request all objects
-of each type, then update a dictionary of the returned values.
+of each type.
 
 3.) `edbc -x <data def file>`
 Executes all statements contained in the data definition file
 against the server. This file can include statements directly against
-the server.
+the server. This feature is included as a way to push or update large
+quantities of objects against the instance.
 
 
 [Maybe Future Feature]
@@ -81,7 +82,6 @@ new schema file.
 Likewise, any required fields present in the new schema file which are not
 available in the old schema will give migrated objects a default value of
 an empty set (`{}`).
-
 """
 # Prints man string
 cmd_args.add_argument('-h', help=man_string)
@@ -119,4 +119,4 @@ def load_dsn(_dsn_str="") -> str:
     except AssertionError:
         return _dsn_str
 
-            
+
