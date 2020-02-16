@@ -87,11 +87,13 @@ an empty set (`{}`).
 cmd_args.add_argument('-h', help=man_string)
 
 # Assigns the'f' key to the value of the file
-cmd_args.add_argument('-f', action='store')
+cmd_args.add_argument('-fd', action='store')
 
-#
-cmd_args.add_argument()
-cmd_args.add_argument()
+# Upload new schema to the database
+cmd_args.add_argument('-u', action='store')
+
+# Execute statements against the database
+cmd_args.add_argument('-x', action='store')
 
 class EdgeDBClientAPIException(Exception):
     _dsn_missing = "Missing environment variable string `$EDGEDB_DSN_PATH` of the form /<path>/<to>/<file> which contains the DSN connection string resembling 'edgedb://user:password@host:port/database?option=value'. Please export the value and re-run this tool. Otherwise, use the more insecure option of supplying the DSN connection string directly as an argument to this command line tool with the `--dsn` option."
