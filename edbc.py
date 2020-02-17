@@ -44,15 +44,13 @@ then
 
     `edbc [options] <args>`
 
-to protect public users on your system from seeing plaintext passwords
-in your history file(s).
+to protect your database from untrusted users on your system.
 
 Examples
 --------
 
 1.) `edbc -u some_new_schema_def_file.edgeql`
-Pushes a new schema to the EdgeDB instance at the provided DSN
-and overwrites the current database schema with a new one.
+Pushes a new schema to the EdgeDB instance at the provided DSN.
 
 2.) `edbc -fd <schema def file>`
 Downloads all elements from the edgedb server and saves them locally
@@ -62,10 +60,11 @@ of each type.
 
 3.) `edbc -x <data def file>`
 Executes all statements contained in the data definition file
-against the server. This file can include statements directly against
-the server. This feature is included as a way to push or update large
-quantities of objects against the instance.
-
+against the server. This file can include statements to be run directly
+against the server. This feature is included as a way to prepare large operations
+without the fear of typos ruining the execution. This is especially
+helpful for situations where the user wants to execute complex operations impacting
+many objects or modules.
 
 [Maybe Future Feature]
 ----------------------
